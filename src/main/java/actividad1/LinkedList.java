@@ -1,7 +1,9 @@
 package actividad1;
 
 public class LinkedList<T> {
+
     private Node<T> head;
+    private Node<T> tail;
     private final boolean isDoubly;
     private final boolean isCircular;
 
@@ -9,35 +11,111 @@ public class LinkedList<T> {
         this.isDoubly = isDoubly;
         this.isCircular = isCircular;
         this.head = null;
+        this.tail = null;
     }
 
-    // Insertar al final
+    // Insertar al inicio
+    public void addFirst(T data) {
+        Node<T> newNode = new Node<>(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            if (isCircular) {
+                head.setNext(head);
+                if (isDoubly) head.setPrev(head);
+            }
+        } else {
+            newNode.setNext(head);
+            if (isDoubly) head.setPrev(newNode);
+            head = newNode;
+            if (isCircular) {
+                tail.setNext(head);
+                if (isDoubly) head.setPrev(tail);
+            }
+        }
+    }
+
+    // Insertar al final (ya la tenías, pero ahora actualizamos tail)
     public void add(T data) {
         Node<T> newNode = new Node<>(data);
         if (head == null) {
             head = newNode;
-            if (isCircular) head.setNext(head);
+            tail = newNode;
+            if (isCircular) {
+                head.setNext(head);
+                if (isDoubly) head.setPrev(head);
+            }
             return;
         }
 
-        Node<T> current = head;
         if (isCircular) {
-            while (current.getNext() != head) {
-                current = current.getNext();
-            }
-            current.setNext(newNode);
+            tail.setNext(newNode);
             newNode.setNext(head);
             if (isDoubly) {
-                newNode.setPrev(current);
+                newNode.setPrev(tail);
                 head.setPrev(newNode);
             }
+            tail = newNode;
         } else {
-            while (current.getNext() != null) {
+            tail.setNext(newNode);
+            if (isDoubly) newNode.setPrev(tail);
+            tail = newNode;
+        }
+    }
+
+    // Eliminar del inicio
+    public T removeFirst() {
+        if (head == null) return null;
+        T data = head.getData();
+
+        if (head == tail) { // Un solo nodo
+            head = null;
+            tail = null;
+            return data;
+        }
+
+        head = head.getNext();
+        if (isCircular) {
+            tail.setNext(head);
+        }
+        if (isDoubly && head != null) head.setPrev(null);
+        return data;
+    }
+
+    // Eliminar del final
+    public T removeLast() {
+        if (head == null) return null;
+        T data = tail.getData();
+
+        if (head == tail) { // Un solo nodo
+            head = null;
+            tail = null;
+            return data;
+        }
+
+        if (!isDoubly) {
+            Node<T> current = head;
+            while (current.getNext() != tail) {
                 current = current.getNext();
             }
-            current.setNext(newNode);
-            if (isDoubly) newNode.setPrev(current);
+            tail = current;
+            tail.setNext(isCircular ? head : null);
+        } else {
+            tail = tail.getPrev();
+            if (tail != null) tail.setNext(isCircular ? head : null);
         }
+
+        return data;
+    }
+
+    // Ver el primero
+    public T peekFirst() {
+        return (head != null) ? head.getData() : null;
+    }
+
+    // Ver el último
+    public T peekLast() {
+        return (tail != null) ? tail.getData() : null;
     }
 
     // Eliminar un nodo
