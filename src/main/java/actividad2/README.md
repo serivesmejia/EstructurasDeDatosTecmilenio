@@ -1,5 +1,3 @@
----
-
 # Documento Técnico y de Pruebas
 
 ## 1. Descripción Técnica de la Implementación
