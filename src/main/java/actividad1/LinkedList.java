@@ -1,6 +1,8 @@
 package actividad1;
 
-public class LinkedList<T> {
+import java.util.Iterator;
+
+public class LinkedList<T> implements Iterable<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -182,5 +184,26 @@ public class LinkedList<T> {
             current = current.getNext();
         } while (current != null && (isCircular ? current != head : true));
         System.out.println(isCircular ? "(circular)" : "null");
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private Node<T> current = head;
+            private boolean firstPass = true;
+
+            @Override
+            public boolean hasNext() {
+                return current != null && (firstPass || (isCircular && current != head));
+            }
+
+            @Override
+            public T next() {
+                T data = current.getData();
+                current = current.getNext();
+                firstPass = false;
+                return data;
+            }
+        };
     }
 }

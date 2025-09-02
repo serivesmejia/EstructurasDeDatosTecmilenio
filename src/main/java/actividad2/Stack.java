@@ -2,7 +2,9 @@ package actividad2;
 
 import actividad1.LinkedList;
 
-public class Stack<T> {
+import java.util.Iterator;
+
+public class Stack<T> implements Iterable<T> {
     private LinkedList<T> lista = new LinkedList<>(false, false);
 
     public void push(T data) {
@@ -19,5 +21,10 @@ public class Stack<T> {
 
     public boolean isEmpty() {
         return lista.peekFirst() == null;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return lista.iterator();
     }
 }
