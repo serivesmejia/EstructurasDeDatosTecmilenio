@@ -1,4 +1,4 @@
-# Proyect FInal - Sistema de Gestión de Tareas
+# Proyecto Final - Sistema de Gestión de Tareas
 
 ## Introducción
 
@@ -23,6 +23,8 @@ En lugar de hacerlo solo con consola, se optó por una interfaz gráfica para qu
 
 El programa implementa un sistema de gestión de tareas que utiliza diferentes estructuras de datos para organizar y atender actividades según su tipo y prioridad. A través de una interfaz gráfica hecha en **Java Swing**, el usuario puede interactuar con botones que representan las distintas operaciones del sistema.
 
+<img width="350" height="330" alt="image" src="https://github.com/user-attachments/assets/54df434d-2a7c-4ea7-86e3-5d57db9e8090" />
+
 A continuación, se describe cómo funciona cada sección:
 
 1. **Tareas Urgentes (Pila)**
@@ -34,12 +36,17 @@ A continuación, se describe cómo funciona cada sección:
         * Atender tarea urgente (se extrae de la pila).
         * Ver la próxima tarea urgente (peek).
 
+<img width="350" height="330" alt="image" src="https://github.com/user-attachments/assets/480d920d-32a0-4440-9d48-f5f1a88ee2cd" />
+<img width="350" height="140" alt="image" src="https://github.com/user-attachments/assets/9d1c6188-9e8f-432a-b1a2-bc4b0e58df00" />
+
 2. **Tareas Regulares (Cola)**
     * Se gestionan con una **cola (Queue)**, atendiendo las tareas en el mismo orden en que fueron agregadas (FIFO).
     * Opciones disponibles:
         * Agregar tarea regular.
         * Atender tarea regular (dequeue).
         * Ver la próxima tarea regular (front).
+      
+<img width="350" height="330" alt="image" src="https://github.com/user-attachments/assets/7bfa17f6-b5df-4592-878f-91d5bf7995e0" />
 
 3. **Tareas por Departamento (Lista / Árbol Binario)**
 
@@ -53,9 +60,13 @@ A continuación, se describe cómo funciona cada sección:
 4. **Visualización General**
     * Existe una opción para **ver todas las tareas pendientes**, sin importar si son urgentes, regulares o por departamento.
     * La salida se muestra en un área de texto dentro de la interfaz gráfica.
+   
+<img width="350" height="150" alt="image" src="https://github.com/user-attachments/assets/715e781e-9ea9-4a0f-8b33-3ca3790c8d28" />
 
 5. **Selección de Departamentos**
     * Cada vez que se agrega, busca o elimina una tarea, el usuario puede seleccionar el **departamento** correspondiente mediante un cuadro de diálogo.
+
+<img width="160" height="86" alt="image" src="https://github.com/user-attachments/assets/6911724d-ef58-472c-a66d-f07ae88d68d1" />
 
 6. **Interfaz Gráfica (Swing)**
     * El programa utiliza botones agrupados en un panel con diseño de cuadrícula (GridLayout).
@@ -72,5 +83,6 @@ Por ejemplo, las pilas y colas resultan muy intuitivas para manejar las tareas u
 Otro punto interesante fue implementar grafos para representar dependencias entre tareas. Ahí es donde se nota que estas estructuras no son solo teoría, sino que tienen aplicaciones muy claras en proyectos reales donde no todas las actividades son independientes.
 
 La parte gráfica con Swing hizo que el sistema se sintiera más completo y mucho más cómodo de usar. En lugar de depender de menús de texto, tener botones y ventanas de selección hace que sea más claro lo que el sistema está haciendo y que sea más fácil probar cada función.
+
 
 En general, el proyecto no solo me sirvió para reforzar los conceptos teóricos, sino también para darme cuenta de cómo se pueden combinar varias estructuras y algoritmos en un mismo programa. Al final, más allá de cumplir con el objetivo académico, quedó un sistema que refleja cómo la programación puede ayudar a organizar procesos de forma eficiente y práctica.
