@@ -1,7 +1,7 @@
 package avanceproj;
 
 // Enum de departamentos
-enum Department {
+public enum Department {
     SOPORTE,
     DESARROLLO,
     ADMINISTRACION;

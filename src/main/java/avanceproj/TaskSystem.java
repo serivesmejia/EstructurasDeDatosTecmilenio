@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Clase que maneja la lógica del sistema
-class TaskSystem {
+public class TaskSystem {
 
-    private Stack<Task> pilaUrgentes = new Stack<>();
-    private Queue<Task> colaRegulares = new Queue<>();
-    private LinkedList<Task> listaDepartamentos = new LinkedList<>(false, false);
+    public Stack<Task> pilaUrgentes = new Stack<>();
+    public Queue<Task> colaRegulares = new Queue<>();
+    public LinkedList<Task> listaDepartamentos = new LinkedList<>(false, false);
 
     // ==== MÉTODOS PARA PILA (Urgentes) ====
     public void agregarTareaPila(Task t) {

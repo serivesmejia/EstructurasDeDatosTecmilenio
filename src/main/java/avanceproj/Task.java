@@ -1,7 +1,7 @@
 package avanceproj;
 
 // Clase Task
-class Task {
+public class Task {
     private String descripcion;
     private Department departamento;
 
