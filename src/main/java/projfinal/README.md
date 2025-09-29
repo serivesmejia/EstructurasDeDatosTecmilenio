@@ -21,8 +21,6 @@ En lugar de hacerlo solo con consola, se optó por una interfaz gráfica para qu
 
 ## Funcionamiento del Programa
 
-## Funcionamiento del Programa
-
 El programa implementa un sistema de gestión de tareas que utiliza diferentes estructuras de datos para organizar y atender actividades según su tipo y prioridad. A través de una interfaz gráfica hecha en **Java Swing**, el usuario puede interactuar con botones que representan las distintas operaciones del sistema.
 
 A continuación, se describe cómo funciona cada sección:
